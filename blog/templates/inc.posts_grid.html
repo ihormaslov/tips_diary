@@ -1,0 +1,72 @@
+{% load thumbnail %}
+
+<div class="row latest-post-preview">
+    <div class="col-xs-12">
+        <h2 class="latest-post-title">
+            <a href="{{ page.object_list.0.get_absolute_url }}">
+                {{ page.object_list.0.title }}
+                <img alt="" src="{% thumbnail page.object_list.0.preview_image 975x531 crop %}" class="preview-img img-responsive"/>
+            </a>
+        </h2>
+        {{ page.object_list.0.get_excerpt|safe }}
+        <p class="text-muted meta-info">{{ page.object_list.0.date|date:"d.m.Y" }}
+            {% if page.object_list.0.viewed %}<span class="glyphicon glyphicon-eye-open">{{ page.object_list.0.viewed }}</span>{% endif %}</p>
+    </div>
+</div>
+
+<div class="grid row">
+    {% for item in page.object_list %}
+        {% if forloop.counter > 1 %}
+            <div class="grid-item col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                <h4 class="post-title">
+                    <a href="{{ item.get_absolute_url }}">
+                        <img alt="" src="{% thumbnail item.preview_image 230x130 crop %}" class="preview-img img-responsive"/>
+                        {{ item.title }}
+                    </a>
+                </h4>
+                {{ item.get_excerpt|safe }}
+                <p class="text-muted meta-info">{{ item.date|date:"d.m.Y" }} {% if item.viewed %}<span class="glyphicon glyphicon-eye-open">{{ item.viewed }}</span>{% endif %}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<script src="{{ STATIC_URL}}js/masonry.pkgd.min.js"></script>
+<script>
+
+    var $grid = $('.grid').masonry({ itemSelector: '.grid-item' });
+    var PAGE = 1
+    var END = false
+
+    $(window).scroll(function() {
+        console.log('scroll')
+        if($(window).scrollTop() == $(document).height() - $(window).height() && !END) {
+            PAGE = PAGE + 1;
+            console.log('scroll2')
+            $.get('', {'p':PAGE, 'json':1}, function(data){
+                console.log('data-length', data.length)
+                if (data.length == 0){
+                    END = true;
+                    return false;
+                }
+                $.each(data, function(index, value){
+                    var new_item = '<div class="grid-item col-xs-6 col-sm-6 col-md-4 col-lg-3">' +
+                                        '<h4 class="post-title">' +
+                                            '<a href="'+ value.get_absolute_url +'">' +
+                                                '<img alt="" src="'+ value.preview_image +'" class="preview-img img-responsive"/>' +
+                                                value.title +
+                                            '</a>' +
+                                        '</h4>' +
+                                        value.get_excerpt +
+                                        '<p class="text-muted meta-info">'+ value.date
+                    if (value.viewed > 0){
+                        new_item += '<span class="glyphicon glyphicon-eye-open">'+ value.viewed +'</span>'
+                    }
+                    new_item +='</p></div>'
+                    var $elem = $(new_item)
+                    $grid.append($elem).masonry('appended', $elem)
+                });
+            }, 'json');
+        }
+    });
+</script>

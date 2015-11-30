@@ -47,9 +47,7 @@ a:hover{
 }
 .latest-post-title a:hover,
 .post-title a:hover{
-    -webkit-filter: sepia(70%);
-    filter: sepia(70%);
-    opacity: 1;
+    opacity: 0.9;
 }
 .most-viewed{
     padding:0;
@@ -78,6 +76,10 @@ a:hover{
     border-top: 1px solid #e7e7e7;
     margin-top: 40px;
     line-height: 50px;
+}
+.post-content img{
+    display: block;
+    max-width: 100%;
 }
 
 @media (min-width: 768px){

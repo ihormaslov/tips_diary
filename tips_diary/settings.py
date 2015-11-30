@@ -22,10 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'jfz+oc+8uqstb5k16g1ww0-(^l=2wr%c)+15wex+lwjltipj@f'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.tips-diary.info'
+]
 
 
 # Application definition
@@ -38,12 +38,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
 
     'ckeditor',
     'ckeditor_uploader',
     'easy_thumbnails',
 
-    'blog'
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,38 +79,10 @@ TEMPLATES = [
         },
     },
 ]
-CACHE_PREFIX = 'a121221'
-if not DEBUG:
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': '127.0.0.1:11211',
-            'TIMEOUT': 7200,
-            'KEY_PREFIX': CACHE_PREFIX
-        }
-    }
-else:
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        }
-    }
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 WSGI_APPLICATION = 'tips_diary.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -134,7 +107,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = ((os.path.join(BASE_DIR, 'static')),)
 STATIC_URL = '/static/'
 
-CKEDITOR_IMAGE_BACKEND = 'Pillow'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {'default': {'toolbar': 'full', 'height': 300, 'width': '100%',},}
+CKEDITOR_CONFIGS = {'default':
+    {'toolbar': 'full', 'height': 300, 'width': '100%',},
+}
+
+
+from settings_local import *

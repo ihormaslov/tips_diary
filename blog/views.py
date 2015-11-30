@@ -6,11 +6,11 @@ from utils_main.decorators import render_to
 
 @render_to('index.html')
 def index(request):
-    categories = Category.objects.all()
-    posts = Post.objects.all()
+    categories = Category.objects.filter(publicated=True)
+    posts = Post.objects.filter(publicated=True)
     most_viewed = posts.order_by('-viewed')[:10]
 
-    page = pagination(request, posts, 2)
+    page = pagination(request, posts, 10)
     if request.GET.get('json'):
         return page
 
@@ -19,12 +19,12 @@ def index(request):
 
 @render_to('category.html')
 def category(request, slug):
-    categories = Category.objects.all()
+    categories = Category.objects.filter(publicated=True)
     category = get_object_or_404(Category, slug=slug)
-    posts = Post.objects.filter(category=category)
+    posts = Post.objects.filter(category=category, publicated=True)
     most_viewed = posts.order_by('-viewed')[:10]
 
-    page = pagination(request, posts, 2)
+    page = pagination(request, posts, 10)
     if request.GET.get('json'):
         return page
 
@@ -34,8 +34,8 @@ def category(request, slug):
 @render_to('post.html')
 def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    categories = Category.objects.all()
-    related_posts = Post.objects.filter(category=post.category)[:10]
+    categories = Category.objects.filter(publicated=True)
+    related_posts = Post.objects.filter(category=post.category, publicated=True)[:10]
 
     request.session.set_test_cookie()
     if request.session.test_cookie_worked():

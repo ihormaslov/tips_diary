@@ -5,7 +5,7 @@
         <h2 class="latest-post-title">
             <a href="{{ page.object_list.0.get_absolute_url }}">
                 {{ page.object_list.0.title }}
-                <img alt="" src="{% thumbnail page.object_list.0.preview_image 975x531 crop %}" class="preview-img img-responsive"/>
+                <img alt="" src="{% thumbnail page.object_list.0.preview_image 975x300 crop %}" class="preview-img img-responsive"/>
             </a>
         </h2>
         {{ page.object_list.0.get_excerpt|safe }}
@@ -20,7 +20,7 @@
             <div class="grid-item col-xs-6 col-sm-6 col-md-4 col-lg-3">
                 <h4 class="post-title">
                     <a href="{{ item.get_absolute_url }}">
-                        <img alt="" src="{% thumbnail item.preview_image 230x130 crop %}" class="preview-img img-responsive"/>
+                        <img alt="" src="{% thumbnail item.preview_image 230x130 crop %}" width="320" height="130" class="preview-img img-responsive"/>
                         {{ item.title }}
                     </a>
                 </h4>

@@ -4,7 +4,7 @@ from datetime import datetime
 
 from django.db import models
 from django.core.urlresolvers import reverse
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from easy_thumbnails.files import get_thumbnailer
 
 
@@ -14,10 +14,10 @@ class Category(models.Model):
     order = models.FloatField(default=0)
     publicated = models.BooleanField(default=True)
     date = models.DateTimeField(default=datetime.now)
+    modified = models.DateTimeField(auto_now=True)
 
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True, null=True)
-    keywords = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         ordering = ['order']
@@ -36,13 +36,13 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     publicated = models.BooleanField(default=True)
     date = models.DateTimeField(default=datetime.now)
+    modified = models.DateTimeField(auto_now=True)
     viewed = models.IntegerField(default=0)
-    content = RichTextField()
+    content = RichTextUploadingField()
     preview_image = models.ImageField(upload_to='images/%Y/%m', verbose_name=u'Картинка превью')
 
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True, null=True)
-    keywords = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         ordering = ['-date']

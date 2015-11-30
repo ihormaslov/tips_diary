@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    <title>{{ category.title }} | Tips-Diary</title>
+{% endblock %}
+
+{% block description %}
+    {% if category.description %}
+        <meta name="description" content="{{ category.description }}">
+    {% endif %}
+{% endblock %}
+
 {% block content %}
+    <ol class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li class="active">{{ category.title }}</li>
+    </ol>
     {% include 'inc.posts_grid.html' %}
 {% endblock content %}
 

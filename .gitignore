@@ -17,3 +17,5 @@ settings_local.py
 
 build/*
 build
+media
+media/*

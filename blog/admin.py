@@ -11,7 +11,7 @@ class CategoryAdmin(admin.ModelAdmin):
             'fields': ('title', 'parent', 'publicated')}),
         ('SEO', {
             'classes': ('collapse', ),
-            'fields': ('slug', 'keywords', 'description')})
+            'fields': ('slug', 'description')})
     )
 
 
@@ -24,7 +24,7 @@ class PostAdmin(admin.ModelAdmin):
             'fields': ('title', 'category', 'publicated', 'preview_image', 'content')}),
         ('SEO', {
             'classes': ('collapse', ),
-            'fields': ('slug', 'keywords', 'description')})
+            'fields': ('slug', 'description')})
     )
 
 

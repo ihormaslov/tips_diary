@@ -22,10 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'jfz+oc+8uqstb5k16g1ww0-(^l=2wr%c)+15wex+lwjltipj@f'
 
-
-ALLOWED_HOSTS = [
-    '.tips-diary.info'
-]
+ADMINS = (('Ihor', 'maslov.ihor@gmail.com'), )
+ALLOWED_HOSTS = ['.tips-diary.info', ]
 
 
 # Application definition
@@ -66,8 +64,14 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),],
-        'APP_DIRS': True,
+        # 'APP_DIRS': True,
         'OPTIONS': {
+            'loaders': [
+                ('django.template.loaders.cached.Loader', [
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ]),
+            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -97,6 +101,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+# EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.mailgun.org'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'tmp', 'app-messages')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -112,6 +121,44 @@ CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.j
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {'default':
     {'toolbar': 'full', 'height': 300, 'width': '100%',},
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': '/home/tips_diary/site/logs/django_request.log',
+            'formatter': 'verbose',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'email_backend': 'django.core.mail.backends.filebased.EmailBackend',
+        }
+    },
+    'loggers': {
+        # 'django.request': {
+        #     'handlers': ['file'],
+        #     'level': 'DEBUG',
+        #     'propagate': True,
+        # },
+        'django.request': {
+            'handlers': ['mail_admins', 'file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        }
+    }
 }
 
 

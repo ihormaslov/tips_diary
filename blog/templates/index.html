@@ -4,11 +4,11 @@
     <title>Главная | Tips-Diary</title>
 {% endblock %}
 
-{% block description %}
-    <meta name="description" content="">
-{% endblock %}
-
 {% block content %}
     {% include 'inc.posts_grid.html' %}
 {% endblock content %}
 
+{% block morescripts %}
+    <script src="{{ STATIC_URL}}js/masonry.pkgd.min.js"></script>
+    <script src="{{ STATIC_URL}}js/script.js"></script>
+{% endblock %}

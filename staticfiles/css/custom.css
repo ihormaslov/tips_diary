@@ -93,3 +93,8 @@ a:hover{
       text-align: center;
     }
 }
+@media (max-width: 460px){
+    .site-name{
+        font-size: 50px;
+    }
+}

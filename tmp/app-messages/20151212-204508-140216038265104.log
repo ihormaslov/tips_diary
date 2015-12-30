@@ -1,0 +1,259 @@
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Subject: [Django] ERROR (EXTERNAL IP): Internal Server Error:
+ /kultura-chto-eto/
+From: root@localhost
+To: maslov.ihor@gmail.com
+Date: Sat, 12 Dec 2015 20:45:08 -0000
+Message-ID: <20151212204508.18655.19500@11381>
+
+Internal Server Error: /kultura-chto-eto/
+
+AttributeError at /kultura-chto-eto/
+'list' object has no attribute 'update'
+
+Request Method: GET
+Request URL: http://tips-diary.info/kultura-chto-eto/
+Django Version: 1.9
+Python Executable: /home/tips_diary/site/env/bin/python
+Python Version: 2.7.6
+Python Path: ['/home/tips_diary/site/tips_diary', '/home/tips_diary/site/env/bin', '/home/tips_diary/site/tips_diary', '/home/tips_diary/site/env/lib/python2.7', '/home/tips_diary/site/env/lib/python2.7/plat-x86_64-linux-gnu', '/home/tips_diary/site/env/lib/python2.7/lib-tk', '/home/tips_diary/site/env/lib/python2.7/lib-old', '/home/tips_diary/site/env/lib/python2.7/lib-dynload', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-x86_64-linux-gnu', '/usr/lib/python2.7/lib-tk', '/home/tips_diary/site/env/local/lib/python2.7/site-packages']
+Server time: Сб, 12 Дек 2015 20:45:08 +0000
+Installed Applications:
+('suit',
+ 'django.contrib.admin',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.sessions',
+ 'django.contrib.messages',
+ 'django.contrib.staticfiles',
+ 'django.contrib.sitemaps',
+ 'ckeditor',
+ 'ckeditor_uploader',
+ 'easy_thumbnails',
+ 'blog')
+Installed Middleware:
+('django.middleware.cache.UpdateCacheMiddleware',
+ 'django.contrib.sessions.middleware.SessionMiddleware',
+ 'django.middleware.common.CommonMiddleware',
+ 'django.middleware.csrf.CsrfViewMiddleware',
+ 'django.contrib.auth.middleware.AuthenticationMiddleware',
+ 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+ 'django.contrib.messages.middleware.MessageMiddleware',
+ 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+ 'django.middleware.security.SecurityMiddleware',
+ 'django.middleware.cache.FetchFromCacheMiddleware')
+
+
+Traceback:  
+
+File "/home/tips_diary/site/env/local/lib/python2.7/site-packages/django/core/handlers/base.py" in get_response
+  149.                     response = self.process_exception_by_middleware(e, request)
+
+File "/home/tips_diary/site/env/local/lib/python2.7/site-packages/django/core/handlers/base.py" in get_response
+  147.                     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+File "/home/tips_diary/site/tips_diary/utils_main/decorators.py" in wrapper
+  23.             output = func(request, *args, **kwargs)
+
+File "/home/tips_diary/site/tips_diary/blog/views.py" in post
+  46.                 viewed_posts.update(post.id)
+
+Exception Type: AttributeError at /kultura-chto-eto/
+Exception Value: 'list' object has no attribute 'update'
+Request information:
+GET: No GET data
+
+POST: No POST data
+
+FILES: No FILES data
+
+COOKIES: No cookie data
+
+META:
+HTTP_REFERER = 'http://tips-diary.info/'
+SERVER_SOFTWARE = 'gunicorn/19.3.0'
+SCRIPT_NAME = u''
+REQUEST_METHOD = 'GET'
+PATH_INFO = u'/kultura-chto-eto/'
+SERVER_PROTOCOL = 'HTTP/1.0'
+QUERY_STRING = ''
+HTTP_USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36'
+HTTP_CONNECTION = 'close'
+SERVER_NAME = 'tips-diary.info'
+REMOTE_ADDR = ''
+wsgi.url_scheme = 'http'
+SERVER_PORT = '80'
+HTTP_PRAGMA = 'no-cache'
+wsgi.input = <gunicorn.http.body.Body object at 0x7f869717e910>
+HTTP_HOST = 'tips-diary.info'
+wsgi.multithread = False
+HTTP_UPGRADE_INSECURE_REQUESTS = '1'
+HTTP_CACHE_CONTROL = 'no-cache'
+HTTP_ACCEPT = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+wsgi.version = 
+RAW_URI = '/kultura-chto-eto/'
+wsgi.run_once = False
+wsgi.errors = <gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f869717eb90>
+wsgi.multiprocess = True
+HTTP_ACCEPT_LANGUAGE = 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+gunicorn.socket = <socket._socketobject object at 0x7f86971bee50>
+HTTP_X_FORWARDED_FOR = '87.244.154.233'
+wsgi.file_wrapper = ''
+HTTP_ACCEPT_ENCODING = 'gzip, deflate, sdch'
+
+Settings:
+Using settings module tips_diary.settings
+SECURE_BROWSER_XSS_FILTER = False
+USE_X_FORWARDED_PORT = False
+USE_THOUSAND_SEPARATOR = False
+CSRF_COOKIE_SECURE = False
+LANGUAGE_CODE = 'ru-RU'
+ROOT_URLCONF = 'tips_diary.urls'
+MANAGERS = []
+BASE_DIR = '/home/tips_diary/site/tips_diary'
+SILENCED_SYSTEM_CHECKS = []
+DEFAULT_CHARSET = 'utf-8'
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+STATIC_ROOT = '/home/tips_diary/site/tips_diary/staticfiles'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+ALLOWED_HOSTS = ['.tips-diary.info']
+MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
+EMAIL_SUBJECT_PREFIX = '[Django] '
+SERVER_EMAIL = 'root@localhost'
+SECURE_HSTS_SECONDS = 0
+STATICFILES_FINDERS = ['django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder']
+SESSION_CACHE_ALIAS = 'default'
+SESSION_COOKIE_DOMAIN = None
+SESSION_COOKIE_NAME = 'sessionid'
+TIME_INPUT_FORMATS = ['%H:%M:%S', '%H:%M:%S.%f', '%H:%M']
+SECURE_REDIRECT_EXEMPT = []
+DATABASES = {'default': {'ENGINE': 'django.db.backends.postgresql_psycopg2', 'AUTOCOMMIT': True, 'ATOMIC_REQUESTS': False, 'NAME': 'tips_diary', 'CONN_MAX_AGE': 0, 'TIME_ZONE': None, 'PORT': '5432', 'HOST': '127.0.0.1', 'USER': 'tips_diary', 'TEST': {'COLLATION': None, 'CHARSET': None, 'NAME': None, 'MIRROR': None}, 'PASSWORD': u'********************', 'OPTIONS': {}}}
+EMAIL_SSL_KEYFILE = u'********************'
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = None
+FILE_UPLOAD_PERMISSIONS = None
+FILE_UPLOAD_HANDLERS = ['django.core.files.uploadhandler.MemoryFileUploadHandler', 'django.core.files.uploadhandler.TemporaryFileUploadHandler']
+DEFAULT_CONTENT_TYPE = 'text/html'
+APPEND_SLASH = True
+FIRST_DAY_OF_WEEK = 0
+DATABASE_ROUTERS = []
+DEFAULT_TABLESPACE = ''
+YEAR_MONTH_FORMAT = 'F Y'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+CACHES = {'default': {'TIMEOUT': 7200, 'LOCATION': '127.0.0.1:11211', 'KEY_PREFIX': u'********************', 'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache'}}
+SESSION_COOKIE_PATH = '/'
+EMAIL_HOST_PASSWORD = u'********************'
+SECURE_CONTENT_TYPE_NOSNIFF = False
+MIDDLEWARE_CLASSES = 
+USE_I18N = True
+THOUSAND_SEPARATOR = ','
+SECRET_KEY = u'********************'
+LANGUAGE_COOKIE_NAME = 'django_language'
+DEFAULT_INDEX_TABLESPACE = ''
+LOGGING_CONFIG = 'logging.config.dictConfig'
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+TEMPLATE_LOADERS = ['django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader']
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+WSGI_APPLICATION = 'tips_diary.wsgi.application'
+TEMPLATE_DEBUG = False
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+CSRF_COOKIE_NAME = 'csrftoken'
+FORCE_SCRIPT_NAME = None
+USE_X_FORWARDED_HOST = False
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
+EMAIL_TIMEOUT = None
+SECURE_SSL_HOST = None
+SIGNING_BACKEND = 'django.core.signing.TimestampSigner'
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_DOMAIN = None
+FILE_CHARSET = 'utf-8'
+DEBUG = False
+CSRF_TRUSTED_ORIGINS = []
+LANGUAGE_COOKIE_DOMAIN = None
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+INSTALLED_APPS = 
+LANGUAGES = [('af', 'Afrikaans'), ('ar', 'Arabic'), ('ast', 'Asturian'), ('az', 'Azerbaijani'), ('bg', 'Bulgarian'), ('be', 'Belarusian'), ('bn', 'Bengali'), ('br', 'Breton'), ('bs', 'Bosnian'), ('ca', 'Catalan'), ('cs', 'Czech'), ('cy', 'Welsh'), ('da', 'Danish'), ('de', 'German'), ('el', 'Greek'), ('en', 'English'), ('en-au', 'Australian English'), ('en-gb', 'British English'), ('eo', 'Esperanto'), ('es', 'Spanish'), ('es-ar', 'Argentinian Spanish'), ('es-co', 'Colombian Spanish'), ('es-mx', 'Mexican Spanish'), ('es-ni', 'Nicaraguan Spanish'), ('es-ve', 'Venezuelan Spanish'), ('et', 'Estonian'), ('eu', 'Basque'), ('fa', 'Persian'), ('fi', 'Finnish'), ('fr', 'French'), ('fy', 'Frisian'), ('ga', 'Irish'), ('gd', 'Scottish Gaelic'), ('gl', 'Galician'), ('he', 'Hebrew'), ('hi', 'Hindi'), ('hr', 'Croatian'), ('hu', 'Hungarian'), ('ia', 'Interlingua'), ('id', 'Indonesian'), ('io', 'Ido'), ('is', 'Icelandic'), ('it', 'Italian'), ('ja', 'Japanese'), ('ka', 'Georgian'), ('kk', 'Kazakh'), ('km', 'Khmer'), ('kn', 'Kannada'), ('ko', 'Korean'), ('lb', 'Luxembourgish'), ('lt', 'Lithuanian'), ('lv', 'Latvian'), ('mk', 'Macedonian'), ('ml', 'Malayalam'), ('mn', 'Mongolian'), ('mr', 'Marathi'), ('my', 'Burmese'), ('nb', 'Norwegian Bokmal'), ('ne', 'Nepali'), ('nl', 'Dutch'), ('nn', 'Norwegian Nynorsk'), ('os', 'Ossetic'), ('pa', 'Punjabi'), ('pl', 'Polish'), ('pt', 'Portuguese'), ('pt-br', 'Brazilian Portuguese'), ('ro', 'Romanian'), ('ru', 'Russian'), ('sk', 'Slovak'), ('sl', 'Slovenian'), ('sq', 'Albanian'), ('sr', 'Serbian'), ('sr-latn', 'Serbian Latin'), ('sv', 'Swedish'), ('sw', 'Swahili'), ('ta', 'Tamil'), ('te', 'Telugu'), ('th', 'Thai'), ('tr', 'Turkish'), ('tt', 'Tatar'), ('udm', 'Udmurt'), ('uk', 'Ukrainian'), ('ur', 'Urdu'), ('vi', 'Vietnamese'), ('zh-hans', 'Simplified Chinese'), ('zh-hant', 'Traditional Chinese')]
+USE_L10N = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+STATICFILES_DIRS = '/home/tips_diary/site/tips_diary/static'
+PREPEND_WWW = False
+SECURE_PROXY_SSL_HEADER = None
+LANGUAGE_COOKIE_AGE = None
+SESSION_COOKIE_HTTPONLY = True
+DEBUG_PROPAGATE_EXCEPTIONS = False
+CSRF_COOKIE_AGE = 31449600
+EMAIL_FILE_PATH = '/home/tips_diary/site/tips_diary/tmp/app-messages'
+MONTH_DAY_FORMAT = 'F j'
+LOGIN_URL = '/accounts/login/'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+TIME_FORMAT = 'P'
+AUTH_USER_MODEL = 'auth.User'
+DATE_INPUT_FORMATS = ['%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', '%b %d %Y', '%b %d, %Y', '%d %b %Y', '%d %b, %Y', '%B %d %Y', '%B %d, %Y', '%d %B %Y', '%d %B, %Y']
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+AUTH_PASSWORD_VALIDATORS = u'********************'
+PASSWORD_RESET_TIMEOUT_DAYS = u'********************'
+SESSION_FILE_PATH = None
+CACHE_MIDDLEWARE_ALIAS = 'default'
+SESSION_SAVE_EVERY_REQUEST = False
+NUMBER_GROUPING = 0
+SHORT_DATETIME_FORMAT = 'm/d/Y P'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+CSRF_FAILURE_VIEW = 'django.views.csrf.csrf_failure'
+CSRF_COOKIE_PATH = '/'
+LOGIN_REDIRECT_URL = '/accounts/profile/'
+DECIMAL_SEPARATOR = '.'
+IGNORABLE_404_URLS = []
+LOCALE_PATHS = []
+TEMPLATE_STRING_IF_INVALID = ''
+LOGOUT_URL = '/accounts/logout/'
+EMAIL_USE_TLS = True
+FIXTURE_DIRS = []
+EMAIL_HOST = 'smtp.gmail.com'
+DATE_FORMAT = 'N j, Y'
+MEDIA_ROOT = '/home/tips_diary/site/tips_diary/media'
+DEFAULT_EXCEPTION_REPORTER_FILTER = 'django.views.debug.SafeExceptionReporterFilter'
+ADMINS = ('Ihor', 'maslov.ihor@gmail.com')
+FORMAT_MODULE_PATH = None
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+MEDIA_URL = '/media/'
+DATETIME_FORMAT = 'N j, Y, P'
+TEMPLATE_DIRS = []
+CKEDITOR_CONFIGS = {'default': {'width': '100%', 'toolbar': 'full', 'height': 300}}
+DISALLOWED_USER_AGENTS = []
+ALLOWED_INCLUDE_ROOTS = []
+LOGGING = {'loggers': {'django.request': {'handlers': ['mail_admins'], 'propagate': True, 'level': 'ERROR'}}, 'version': 1, 'formatters': {'simple': {'format': '%(levelname)s %(message)s'}, 'verbose': {'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'}}, 'disable_existing_loggers': False, 'handlers': {'file': {'level': 'DEBUG', 'class': 'logging.FileHandler', 'filename': '/home/tips_diary/site/logs/django_request.log'}, 'mail_admins': {'email_backend': 'django.core.mail.backends.filebased.EmailBackend', 'class': 'django.utils.log.AdminEmailHandler', 'level': 'ERROR'}}}
+SHORT_DATE_FORMAT = 'm/d/Y'
+TEMPLATES = [{'DIRS': ['/home/tips_diary/site/tips_diary/templates'], 'OPTIONS': {'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request', 'django.template.context_processors.media', 'django.template.context_processors.static', 'django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages'], 'loaders': [('django.template.loaders.cached.Loader', ['django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader'])]}, 'BACKEND': 'django.template.backends.django.DjangoTemplates'}]
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+CACHE_MIDDLEWARE_KEY_PREFIX = u'********************'
+SECURE_SSL_REDIRECT = False
+TIME_ZONE = 'UTC'
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = False
+TEMPLATE_CONTEXT_PROCESSORS = ['django.contrib.auth.context_processors.auth', 'django.template.context_processors.debug', 'django.template.context_processors.i18n', 'django.template.context_processors.media', 'django.template.context_processors.static', 'django.template.context_processors.tz', 'django.contrib.messages.context_processors.messages']
+MIGRATION_MODULES = {}
+SESSION_COOKIE_AGE = 1209600
+SETTINGS_MODULE = 'tips_diary.settings'
+USE_ETAGS = False
+LANGUAGES_BIDI = ['he', 'ar', 'fa', 'ur']
+FILE_UPLOAD_TEMP_DIR = None
+INTERNAL_IPS = []
+STATIC_URL = '/static/'
+EMAIL_PORT = 587
+USE_TZ = True
+CACHE_PREFIX = 'a12122'
+TEST_NON_SERIALIZED_APPS = []
+PASSWORD_HASHERS = u'********************'
+ABSOLUTE_URL_OVERRIDES = {}
+LANGUAGE_COOKIE_PATH = '/'
+CACHE_MIDDLEWARE_SECONDS = 600
+EMAIL_SSL_CERTFILE = None
+CSRF_COOKIE_HTTPONLY = False
+DATETIME_INPUT_FORMATS = ['%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M:%S.%f', '%Y-%m-%d %H:%M', '%Y-%m-%d', '%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H:%M:%S.%f', '%m/%d/%Y %H:%M', '%m/%d/%Y', '%m/%d/%y %H:%M:%S', '%m/%d/%y %H:%M:%S.%f', '%m/%d/%y %H:%M', '%m/%d/%y']
+EMAIL_HOST_USER = '326121sa@gmail.com'
+
+
+
+-------------------------------------------------------------------------------

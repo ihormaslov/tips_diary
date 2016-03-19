@@ -15,7 +15,7 @@ def index(request):
     posts = Post.objects.filter(publicated=True)
     most_viewed = posts.order_by('-viewed')[:10]
 
-    page = pagination(request, posts, 10)
+    page = pagination(request, posts, 15)
     if request.GET.get('json'):
         return page
 
@@ -29,7 +29,7 @@ def category(request, slug):
     posts = Post.objects.filter(category=category, publicated=True)
     most_viewed = posts.order_by('-viewed')[:10]
 
-    page = pagination(request, posts, 10)
+    page = pagination(request, posts, 15)
     if request.GET.get('json'):
         return page
 

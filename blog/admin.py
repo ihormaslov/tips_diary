@@ -21,7 +21,7 @@ class PostAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('title', 'category', 'publicated', 'preview_image', 'content')}),
+            'fields': ('title', 'category', 'publicated', 'date', 'preview_image', 'content')}),
         ('SEO', {
             'classes': ('collapse', ),
             'fields': ('slug', 'description')})

@@ -56,8 +56,8 @@ class Post(models.Model):
         return reverse('post', kwargs={'slug': self.slug or self.id})
 
     def get_preview_thumb(self, width=None, height=None):
-        width = width if width else 230
-        height = height if height else 130
+        width = width if width else 295
+        height = height if height else 132
         options = {'size': (width, height), 'crop': True}
         return get_thumbnailer(self.preview_image).get_thumbnail(options).url
 

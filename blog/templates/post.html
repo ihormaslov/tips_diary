@@ -18,12 +18,38 @@
     </ol>
     <div class="post-content">
         <h2>{{ post.title }}</h2>
+
         <p class="text-muted meta-info">{{ post.date|date:"D, d M Y" }} {% if post.viewed %}<span class="glyphicon glyphicon-eye-open">{{ post.viewed }}</span>{% endif %}</p>
+
+        <!-- AddToAny BEGIN -->
+        <div class="a2a_kit a2a_kit_size_24 a2a_default_style">
+        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_twitter"></a>
+        <a class="a2a_button_google_plus"></a>
+        <a class="a2a_button_vk"></a>
+        </div>
+        <script type="text/javascript">
+        var a2a_config = a2a_config || {};
+        a2a_config.onclick = 1;
+        a2a_config.locale = "ru";
+        </script>
+        <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END -->
+        <br>
         {{ post.content|safe }}
+        <div class="a2a_kit a2a_kit_size_24 a2a_default_style">
+        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_twitter"></a>
+        <a class="a2a_button_google_plus"></a>
+        <a class="a2a_button_vk"></a>
+        </div>
     </div>
 {% endblock %}
 
 {% block sidebar %}
+    {% if related_posts %}
     <h3>Похожие статьи</h3>
     <ul class="most-viewed">
         {% for post in related_posts %}
@@ -35,4 +61,5 @@
             </li>
         {% endfor %}
     </ul>
+    {% endif %}
 {% endblock %}

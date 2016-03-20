@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>{{ page.title }} | Tips-Diary</title>
+{% endblock %}
+
+{% block description %}
+    {% if page.description %}
+        <meta name="description" content="{{ page.description }}">
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <ol class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li class="active">{{ page.title }}</li>
+    </ol>
+    <div class="post-content">
+        <h2>{{ page.title }}</h2>
+        {{ page.content|safe }}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <h3>Популярное</h3>
+    <ul class="most-viewed">
+        {% for post in related_posts %}
+            <li>
+                <a href="{{ post.get_absolute_url }}">
+                    {{ post.title }}
+                    <span class="glyphicon glyphicon-eye-open text-muted">{{ post.viewed }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

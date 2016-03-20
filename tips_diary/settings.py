@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
 
     'blog',
+    'page',
 )
 
 MIDDLEWARE_CLASSES = (

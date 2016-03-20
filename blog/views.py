@@ -14,7 +14,7 @@ def index(request):
     if request.GET.get('json'):
         return page
 
-    return {'categories':categories, 'most_viewed': most_viewed, 'page':page}
+    return {'categories': categories, 'most_viewed': most_viewed, 'page': page}
 
 
 @render_to('category.html')
@@ -28,7 +28,7 @@ def category(request, slug):
     if request.GET.get('json'):
         return page
 
-    return {'categories':categories, 'category':category, 'most_viewed': most_viewed, 'page':page}
+    return {'categories': categories, 'category': category, 'most_viewed': most_viewed, 'page': page}
 
 
 @render_to('post.html')
@@ -47,7 +47,7 @@ def post(request, slug):
             post.increase_views_count()
             viewed_posts.append(post.id)
 
-    return {'categories':categories, 'related_posts': related_posts,'post':post}
+    return {'categories': categories, 'related_posts': related_posts,'post': post}
 
 @render_to('blog/search.html')
 def search(request):

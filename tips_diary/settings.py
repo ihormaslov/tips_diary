@@ -65,20 +65,15 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),],
-        # 'APP_DIRS': True,
+        'APP_DIRS': True,
         'OPTIONS': {
-            'loaders': [
-                ('django.template.loaders.cached.Loader', [
-                    'django.template.loaders.filesystem.Loader',
-                    'django.template.loaders.app_directories.Loader',
-                ]),
-            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.contrib.auth.context_processors.auth',
+                "django.template.context_processors.tz",
                 'django.contrib.messages.context_processors.messages',
             ],
         },

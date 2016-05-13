@@ -9,7 +9,7 @@ from utils_main.decorators import render_to
 logger = logging.getLogger('django.request')
 
 
-@render_to('index.html')
+@render_to('blog/index.html')
 def index(request):
     categories = Category.objects.filter(publicated=True)
     posts = Post.objects.filter(publicated=True)
@@ -22,7 +22,7 @@ def index(request):
     return {'categories': categories, 'most_viewed': most_viewed, 'page': page}
 
 
-@render_to('category.html')
+@render_to('blog/category.html')
 def category(request, slug):
     categories = Category.objects.filter(publicated=True)
     category = get_object_or_404(Category, slug=slug)
@@ -36,7 +36,7 @@ def category(request, slug):
     return {'categories': categories, 'category': category, 'most_viewed': most_viewed, 'page': page}
 
 
-@render_to('post.html')
+@render_to('blog/post.html')
 def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     categories = Category.objects.filter(publicated=True)

@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import json
-from django.template import RequestContext
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 
 
 def render_to(template_path, allow_ajax=False):
@@ -23,7 +22,6 @@ def render_to(template_path, allow_ajax=False):
             output = func(request, *args, **kwargs)
             if not isinstance(output, dict):
                 return output
-            kwargs = {'context_instance': RequestContext(request)}
 
             if allow_ajax and request.is_ajax():
                 return HttpResponse(json.dumps(output), 'application/json')
@@ -33,6 +31,6 @@ def render_to(template_path, allow_ajax=False):
             template = template_path
             if 'TEMPLATE' in output:
                 template = output.pop('TEMPLATE')
-            return render_to_response(template, output, **kwargs)
+            return render(request, template, output, content_type="text/html")
         return wrapper
     return decorator

@@ -66,4 +66,5 @@ class Post(models.Model):
         self.save()
 
     def get_excerpt(self):
-        return self.content.split('<div style="page-break-after: always"><span style="display:none">&nbsp;</span></div>', 1)[0]
+        cnt = self.content.replace('page-break-after: always', 'page-break-after:always')
+        return cnt.split('<div style="page-break-after:always"><span style="display:none">&nbsp;</span></div>', 1)[0]

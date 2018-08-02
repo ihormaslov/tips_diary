@@ -30,6 +30,8 @@
             ga('create', 'UA-56794091-1', 'auto');
             ga('send', 'pageview');
         </script>
+        {% block morehead %}
+        {% endblock %}
     </head>
     <body>
         <div class="container">
@@ -88,7 +90,7 @@
                 </div>
                 <div class="col-sm-3 col-lg-2">
                     {% block sidebar %}
-                        <h3>Популярное</h3>
+                        <h3>Еще:</h3>
                         <ul class="most-viewed">
                             {% for post in most_viewed %}
                                 <li>

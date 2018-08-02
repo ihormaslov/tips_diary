@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
 {% block title %}
     <title>{{ post.title }} | Tips-Diary</title>
@@ -8,6 +9,13 @@
     {% if post.description %}
         <meta name="description" content="{{ post.description }}">
     {% endif %}
+{% endblock %}
+
+{% block morehead %}
+    <meta property="og:title" content="{{ post.title }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="https://{% thumbnail post.preview_image 732x414 crop %}">
 {% endblock %}
 
 {% block content %}

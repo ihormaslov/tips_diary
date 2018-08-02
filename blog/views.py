@@ -13,7 +13,7 @@ logger = logging.getLogger('django.request')
 def index(request):
     categories = Category.objects.filter(publicated=True)
     posts = Post.objects.filter(publicated=True)
-    most_viewed = posts.order_by('-viewed')[:10]
+    most_viewed = posts.order_by('?')[:10]
 
     page = pagination(request, posts, 15)
     if request.GET.get('json'):
@@ -27,7 +27,7 @@ def category(request, slug):
     categories = Category.objects.filter(publicated=True)
     category = get_object_or_404(Category, slug=slug)
     posts = Post.objects.filter(category=category, publicated=True)
-    most_viewed = posts.order_by('-viewed')[:10]
+    most_viewed = posts.order_by('?')[:10]
 
     page = pagination(request, posts, 15)
     if request.GET.get('json'):

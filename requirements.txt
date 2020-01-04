@@ -4,7 +4,7 @@ django-appconf==1.0.1
 django-ckeditor==5.8.0
 django-suit==0.2.15
 easy-thumbnails
-gunicorn==19.3.0
+gunicorn==19.5.0
 ipython==4.0.0
 ipython-genutils==0.1.0
 path.py==8.1.2

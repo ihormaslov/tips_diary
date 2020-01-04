@@ -1,5 +1,5 @@
 decorator==4.0.4
-Django==1.11
+Django==1.11.23
 django-appconf==1.0.1
 django-ckeditor==5.0.2
 django-suit==0.2.15

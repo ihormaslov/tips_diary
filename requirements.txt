@@ -1,7 +1,7 @@
 decorator==4.0.4
 Django==1.11
 django-appconf==1.0.1
-django-ckeditor==5.0.2
+django-ckeditor==5.8.0
 django-suit==0.2.15
 easy-thumbnails
 gunicorn==19.3.0

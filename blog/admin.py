@@ -16,7 +16,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', )
+    list_display = ('title', 'category' )
     prepopulated_fields = {'slug': ('title',)}
 
     fieldsets = (

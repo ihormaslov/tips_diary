@@ -1,6 +1,7 @@
 import logging
 
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 from blog.models import Category, Post
 from blog.utils import pagination
 from utils_main.decorators import render_to
@@ -56,3 +57,6 @@ def post(request, slug):
 @render_to('blog/search.html')
 def search(request):
     return {}
+
+def ads_txt(request):
+    return HttpResponse('google.com, pub-8465342824789720, DIRECT, f08c47fec0942fa0')

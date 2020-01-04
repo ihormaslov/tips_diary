@@ -24,7 +24,7 @@ class Category(models.Model):
         verbose_name = u'Категория'
         verbose_name_plural = u'Категории'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
@@ -49,7 +49,7 @@ class Post(models.Model):
         verbose_name = u'Запись'
         verbose_name_plural = u'Записи'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
